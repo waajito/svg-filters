@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Filters</title>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <!-- <article>
+            <H2> How I made mobile game in 7 days and published it on the play store</H2>
+
+            <p>Disclaimer: I have been developing games for almost a decade now. <br /> So this is my personal
+                experience
+                that I
+                wanted to share and it’s not a guide for beginners.</p>
+
+            <p>
+                It started out as a new year resolution which got pushed around for months and finally I got time to do
+                it.
+            </p>
+            <h3>Day 1</h3>
+
+            <p> Figuring out what kind of game to make. some of the requirements are it needs to be a hyper-casual game.
+                something that can be played while holding the phone with a single hand. preferably tap-based game.
+            </p>
+            <p> Coming to the tools we’ll be using unity is used for development and Figma for the design and some other
+                assets
+                for music and so on.</p>
+
+            <h3>Day 2</h3>
+
+            <p> So now that we’ve gotten the game mechanics figured out. we’ll have to start working on the design. I’ll
+                be
+                opening figma and creating the game’s UI elements, sprites and other necessary assets. I’m going to make
+                the
+                UI
+                elements as simple as possible but still look aesthetically pleasing. It took me a while to get the
+                design
+                right, but I finally found a design that I was satisfied with.
+            </p>
+            <h3>Day 3</h3>
+
+            <p>I start coding the game mechanics and implementing the UI. I made sure to keep the code clean and modular
+                so
+                that it can easily be modified or added to in the future. I spent most of the day working on the code,
+                trying to
+                make sure that everything was working correctly. I ran into a few issues, but I was able to fix them
+                fairly
+                quickly.</p>
+
+            <h3>Day 4</h3>
+
+            <p> I continued working on the code, trying to add more features to the game. I also started working on the
+                sound
+                effects and music for the game. I wanted the game to be engaging, so I spent a lot of time trying to
+                find
+                the
+                right sounds and music for the game.</p>
+
+            <h3>Day 5</h3>
+
+            <p>I continued working on the sound effects and music for the game. I also made some changes to the game
+                mechanics,
+                trying to make the game more fun and engaging. I spent most of the day working on the game, trying to
+                get
+                everything just right.</p>
+
+            <h3>Day 6</h3>
+
+            <p>
+                I spent the day testing the game, trying to find any bugs or issues that needed to be fixed. I also
+                continued
+                working on the sound effects and music for the game. I wanted the game to be perfect, so I spent a lot
+                of
+                time
+                testing and tweaking everything.
+            </p>
+
+            <h3>Day 7</h3>
+            <p>
+                The final day. I test the game and fix any bugs or issues that I come across. Once I’m satisfied with
+                the
+                game,
+                I sign up for a Google Play Developer account and publish the game on the Play Store. It was a long,
+                tiring
+                week, but I was finally able to publish my game on the Play Store. I was really proud of what I had
+                accomplished, and I couldn't wait for people to play my game.
+
+                And that’s how I made a mobile game in just 7 days and published it on the Play Store!
+
+            </p>
+
+        </article> -->
+        <hr>
+
+        <h3>A desktop while you hover over the image</h3>
+        <svg>
+            <filter id="noise" x="0%" y="0%" width="100%" height="100%">
+                <feTurbulence baseFrequency="0.05 0.05" result="NOISE" numOctaves="1" id="turbulence" />
+                <feDisplacementMap in="SourceGraphic" in2="NOISE" scale="20"></feDisplacementMap>
+            </filter>
+        </svg>
+
+        <div class="overlay">
+            <div class="kcontainer">
+                <img src="./images/orange.jpeg" height="400" width="400" alt="orange" class="pic">
+                <img src="./images/ice-cream.jpeg" height="400" width="400" alt="ice cream" class="pic">
+                <img src="./images/cherry.jpeg" height="400" width="400" alt="cherry" class="pic">
+            </div>
+        </div>
+
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+
+    <script>
+        let el = document.getElementById("turbulence");
+
+        let tl = new TimelineMax({ paused: true });
+
+        tl.from('h1', 3, { opacity: 0, y: 50 });
+        tl.staggerFrom(".pic", 3, {
+            opacity: 0, x: -100, y: -120, ease: Power4.easeOut
+        }, 0.6)
+
+        tl.to(el, 3, { attr: { baseFrequency: '0 0' } }, 3)
+        tl.play();
+    </script>
+</body>
+
+</html>
